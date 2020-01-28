@@ -39,8 +39,6 @@ y=0
 def product_name(products):
     return products["name"]
 
-def department_name(products):
-    return products["department"]
 
 #alphabetically sort the list
 products2 = sorted(products, key=product_name)
@@ -72,6 +70,7 @@ department_list.sort()
 department_list_sorted = list(set(department_list))
 department_list_sorted.sort()
 
+#initiate the output process
 print("--------------")
 print("THERE ARE", len(department_list_sorted), "DEPARTMENTS:")
 print("--------------")
@@ -80,14 +79,16 @@ print("--------------")
 #demonstrate use of for loop to output the departments
 for i in range(len(department_list_sorted)):
     
+    #create these local variables 
     department1 = department_list_sorted[i]
     count = 0
 
+    #run a nested for loop to see frequency of department
     for x in range(len(department_list)):
         if department_list[x] == department1:
             count += 1
             
-
+    #output and check whether it should be (s) or single
     if count > 1:
         print("+", department_list_sorted[i].title(), f"({count} products)")
     else:
